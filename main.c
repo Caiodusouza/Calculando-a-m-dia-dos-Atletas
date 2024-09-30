@@ -1,31 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int main() {
+    float altura[10];
+    int contador;
+    float soma = 0.0, media;
 
-int main(){
-	float altura [10];
-	int contador;
-	float soma, media;
-	
-	for (contador=1; contador<=3; contador++){
-		
-		printf("%d informe a altura: ", contador);
-		scanf("%f", &altura[contador]);
-		
-		soma = (soma + altura [contador]);
-		
-	}
-	media = soma/contador;
-	printf("media: %.2f /n", media);
-	
-	printf("/n atletas que tem altura maior que a media /n");
-	
-	for (contador=1; contador <=3; contador++){
-		
-		if (altura[contador] > media)
-		printf ("%d altura eh %.2f /n", contador, altura[contador]);
-	}
-	
+    for (contador = 0; contador < 3; contador++) {
+        printf("%d. Informe a altura: ", contador + 1);
+        scanf("%f", &altura[contador]);
+        soma += altura[contador];
+    }
+
+    media = soma / 3; // Média para 3 atletas
+    printf("Média: %.2f\n", media);
+
+    printf("\nAtletas que têm altura maior que a média:\n");
+    for (contador = 0; contador < 3; contador++) {
+        if (altura[contador] > media) {
+            printf("%d. Altura é %.2f\n", contador + 1, altura[contador]);
+        }
+    }
+
+    return 0;
 }
-
